@@ -1,3 +1,10 @@
+## Rav's notes
+
+app scheleton created with command:
+npx create-react-app react-tic-tac-toe --typescript
+
+## END: Rav's notes
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
