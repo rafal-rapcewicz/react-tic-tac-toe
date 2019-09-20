@@ -2,15 +2,34 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const Square = () => (
-  <button className="square">
-    {/* TODO */}
-  </button>
-);
+interface ISquareProps {
+  value: number;
+}
+
+interface ISquareState {
+  value: number | string;
+}
+
+class Square extends React.Component<ISquareProps, ISquareState> {
+  constructor(props: { value: number }) {
+    super(props);
+    this.state = {
+      value: props.value,
+    };
+  }
+
+  render() {
+    return (
+      <button className="square" onClick={() => this.setState({ value: 'X' })}>
+        {this.state.value}
+      </button>
+    );
+  }
+}
 
 const Board = () => {
   const renderSquare = (i: number) => {
-    return <Square />;
+    return <Square value={i} />;
   }
   const status = 'Next player: X';
 
@@ -36,6 +55,7 @@ const Board = () => {
   );
 };
 
+//RAV functional compoment can't have state and can't use Lifecycle Hooks ...
 const Game = () => (
   <div className="game">
     <div className="game-board">
